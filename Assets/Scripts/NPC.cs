@@ -10,7 +10,6 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
     public Image portaitImage;
-
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
 
@@ -22,7 +21,7 @@ public class NPC : MonoBehaviour, IInteractable
     public void Interact()
     {
         //if no dialogue data or the game is paused and no dialogue is active
-        if (dialogueData == null)
+        if (dialogueData == null || (PauseController.isPaused && !isDialogueActive))
             return;
 
         if (isDialogueActive)
@@ -44,7 +43,7 @@ public class NPC : MonoBehaviour, IInteractable
         portaitImage.sprite = dialogueData.npcPortrait;
 
         dialoguePanel.SetActive(true);
-        //PauseController.SetPause(true);
+        PauseController.SetPause(true);
 
         StartCoroutine(TypeLine());
 
@@ -94,6 +93,6 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = false;
         dialogueText.SetText("");
         dialoguePanel.SetActive(false);
-        //PauseController.SetPause(false);
+        PauseController.SetPause(false);
     }
 }

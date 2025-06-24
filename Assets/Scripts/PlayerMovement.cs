@@ -16,6 +16,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PauseController.isPaused)
+        {
+            rb.linearVelocity = Vector2.zero; //stop movement
+            // Animator.SetBool("isWalking", false);
+            return;
+        }
         rb.linearVelocity = moveInput * moveSpeed;
     }
 

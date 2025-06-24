@@ -15,7 +15,12 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if(!menuCanvas.activeSelf && PauseController.isPaused)
+            {
+                return; // If the menu is not active and the game is paused, do nothing
+            }
             menuCanvas.SetActive(!menuCanvas.activeSelf); // Toggle the menu canvas visibility
+            PauseController.SetPause(menuCanvas.activeSelf); // Pause or unpause the game based on menu visibility
         }
 
     }
