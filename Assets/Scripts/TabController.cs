@@ -18,10 +18,8 @@ public class TabController : MonoBehaviour
         for(int i =0; i < pages.Length;i++)
         {
             pages[i].SetActive(false); // Deactivate all pages
-            tabImages[i].color = Color.grey; // Set all tab images to inactive color
         }
 
         pages[tabNo].SetActive(true); // Activate the selected page
-        tabImages[tabNo].color = Color.white; // Set the selected tab image to active color
     }
 }

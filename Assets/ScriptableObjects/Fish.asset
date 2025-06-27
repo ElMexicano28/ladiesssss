@@ -16,9 +16,18 @@ MonoBehaviour:
   npcPortrait: {fileID: -6911760152422105435, guid: 687ca9cb69305d945aaeead3b60803d7, type: 3}
   dialogueLines:
   - Hi
-  - RAHHHHHHHHHHHHHHH
+  - help?
+  - cool
+  - fuck you
   autoProgressLines: 0100
+  endDialogueLines: 00000100
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - yes
+    - no
+    nextDialogueIndexes: 0200000003000000
